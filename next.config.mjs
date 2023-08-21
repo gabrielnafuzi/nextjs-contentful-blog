@@ -3,7 +3,7 @@ import './src/env.mjs'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [],
+    domains: ['images.ctfassets.net'],
   },
   reactStrictMode: true,
   experimental: {

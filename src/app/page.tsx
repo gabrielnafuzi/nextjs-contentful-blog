@@ -1,23 +1,21 @@
 import Link from 'next/link'
 
-const allPosts = [
-  {
-    title: 'Deploying Next.js Apps',
-    description: 'How to deploy your Next.js apps on Vercel.',
-    _id: '1',
-    slug: 'deploying-nextjs-apps',
-  },
-]
+import { getPosts } from '@/lib/contentful/api/get-posts'
 
-export default function Home() {
+export const revalidate = 60
+
+export default async function Home() {
+  const ctfPostsEntries = await getPosts()
+
   return (
     <div className="prose dark:prose-invert">
-      {allPosts.map((post) => (
-        <article key={post._id}>
-          <Link href={post.slug}>
-            <h2>{post.title}</h2>
+      {ctfPostsEntries.items.map((postEntry) => (
+        <article key={postEntry.sys.id}>
+          <Link href={`/posts/${postEntry.fields.slug}`}>
+            <h2>{postEntry.fields.title}</h2>
           </Link>
-          {post.description && <p>{post.description}</p>}
+
+          <p>{postEntry.fields.description}</p>
         </article>
       ))}
     </div>
