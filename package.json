@@ -14,7 +14,7 @@
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "contentful:export": "dotenv -- cross-var contentful space export --space-id=%CONTENTFUL_SPACE_ID% --management-token=%CONTENTFUL_MANAGEMENT_TOKEN% --export-dir=src/lib/contentful/__generated --content-file=export.json",
     "contentful:import": "dotenv -- cross-var contentful space import --space-id=%CONTENTFUL_SPACE_ID% --management-token=%CONTENTFUL_MANAGEMENT_TOKEN% --content-file=src/lib/contentful/__generated/export.json",
-    "contentful:generate-types": "cf-content-types-generator src/lib/contentful/__generated/export.json -o src/lib/contentful/__generated/types -X && eslint src/lib/contentful/__generated/types/** --fix"
+    "contentful:generate-types": "pnpm contentful:export && cf-content-types-generator src/lib/contentful/__generated/export.json -o src/lib/contentful/__generated/types -X && eslint src/lib/contentful/__generated/types/** --fix"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.17.1",
