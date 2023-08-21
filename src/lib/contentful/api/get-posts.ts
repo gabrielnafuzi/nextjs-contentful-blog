@@ -6,9 +6,11 @@ type PostEntrySkeleton = {
   fields: Pick<TypePostSkeleton['fields'], 'title' | 'slug' | 'description'>
 } & Omit<TypePostSkeleton, 'fields'>
 
-export const getPosts = () => {
-  return ctfClient.getEntries<PostEntrySkeleton>({
+export const getPosts = async () => {
+  const entries = await ctfClient.getEntries<PostEntrySkeleton>({
     content_type: CTF_CONTENT_TYPE.POST,
     select: ['sys.id', 'fields.title', 'fields.slug', 'fields.description'],
   })
+
+  return entries.items
 }

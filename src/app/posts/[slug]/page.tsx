@@ -31,10 +31,10 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams(): Promise<Array<PostPageParams>> {
-  const postsEntries = await getPosts()
+  const posts = await getPosts()
 
-  return postsEntries.items.map((postEntry) => ({
-    slug: postEntry.fields.slug,
+  return posts.map((post) => ({
+    slug: post.fields.slug,
   }))
 }
 
