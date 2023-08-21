@@ -55,7 +55,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
       <hr className="my-4" />
 
-      <RichText document={post.fields.content} />
+      <RichText document={post.fields.body} />
     </article>
   )
 }

@@ -12,7 +12,7 @@
         "id": "post",
         "type": "ContentType",
         "createdAt": "2023-08-21T17:21:31.980Z",
-        "updatedAt": "2023-08-21T17:27:54.158Z",
+        "updatedAt": "2023-08-21T22:57:32.658Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -20,8 +20,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 3,
-        "publishedAt": "2023-08-21T17:27:54.158Z",
+        "publishedVersion": 5,
+        "publishedAt": "2023-08-21T22:57:32.658Z",
         "firstPublishedAt": "2023-08-21T17:21:32.519Z",
         "createdBy": {
           "sys": {
@@ -37,8 +37,8 @@
             "id": "2QKqw8DUDimefodJOPjXtg"
           }
         },
-        "publishedCounter": 2,
-        "version": 4,
+        "publishedCounter": 3,
+        "version": 6,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -91,8 +91,8 @@
           "omitted": false
         },
         {
-          "id": "content",
-          "name": "Content",
+          "id": "body",
+          "name": "Body",
           "type": "RichText",
           "localized": false,
           "required": true,
@@ -293,7 +293,7 @@
             "linkType": "Space"
           }
         },
-        "version": 4,
+        "version": 6,
         "createdAt": "2023-08-21T17:21:32.646Z",
         "createdBy": {
           "sys": {
@@ -302,7 +302,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2023-08-21T17:27:55.093Z",
+        "updatedAt": "2023-08-21T22:57:33.725Z",
         "updatedBy": {
           "sys": {
             "id": "2QKqw8DUDimefodJOPjXtg",
@@ -351,7 +351,7 @@
           "widgetNamespace": "builtin"
         },
         {
-          "fieldId": "content",
+          "fieldId": "body",
           "settings": {
             "helpText": "The content of the post"
           },
@@ -498,7 +498,7 @@
         "slug": {
           "en-US": "deploying-next-js-apps"
         },
-        "content": {
+        "body": {
           "en-US": {
             "nodeType": "document",
             "data": {

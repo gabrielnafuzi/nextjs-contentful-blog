@@ -10,7 +10,7 @@ export type TypePostFields = {
   title: EntryFieldTypes.Symbol
   description: EntryFieldTypes.Text
   slug: EntryFieldTypes.Symbol
-  content: EntryFieldTypes.RichText
+  body: EntryFieldTypes.RichText
 }
 
 export type TypePostSkeleton = EntrySkeletonType<TypePostFields, 'post'>
