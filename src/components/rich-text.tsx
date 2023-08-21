@@ -1,7 +1,6 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import {
   BLOCKS,
-  MARKS,
   type Document as RichTextDocument,
   type Text,
 } from '@contentful/rich-text-types'
@@ -19,30 +18,19 @@ export const RichText = ({ document }: RichTextProps) => {
   return (
     <>
       {documentToReactComponents(document, {
-        renderMark: {
-          [MARKS.CODE]: (text) => {
-            return (
-              <pre>
-                <code>{text}</code>
-              </pre>
-            )
-          },
-        },
-
         renderNode: {
           [BLOCKS.PARAGRAPH]: (node, children) => {
             if (
+              node.content.length === 1 &&
               node.content.find(
                 (item) =>
                   (item as Text).marks?.find((mark) => mark.type === 'code'),
               )
             ) {
               return (
-                <div>
-                  <pre>
-                    <code>{children}</code>
-                  </pre>
-                </div>
+                <pre>
+                  <code>{children}</code>
+                </pre>
               )
             }
 
