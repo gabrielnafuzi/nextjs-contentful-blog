@@ -7,7 +7,7 @@ export const revalidate = 60
 export default async function Home() {
   const posts = await getPosts()
 
-  if (!posts) {
+  if (!posts || posts.length === 0) {
     return <p className="mt-20 text-center">No posts found.</p>
   }
 
