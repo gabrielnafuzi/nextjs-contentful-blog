@@ -1,6 +1,6 @@
 # Description
 
-Blog example using Next.js and Contentful CMS.
+This project is a blog example built using Next.js and Contentful CMS. It showcases how to create and manage content using Contentful and render it using Next.js. Follow the instructions below to get started with the project.
 
 ## Live Demo
 
@@ -8,7 +8,8 @@ You can see a live demo at [https://contentful-blog.gabrielmoraes.dev](https://c
 
 ## Requirements
 
-`node` and `pnpm` must be installed on your system.
+- `node` (>= 18.0.0)
+- `pnpm` (>= 7.0.0)
 
 ## Installation
 
@@ -42,7 +43,7 @@ After creating an account, create a new empty **space** from the [dashboard](htt
 
 The [content model](https://www.contentful.com/developers/docs/concepts/data-model/) defines the data structures of your application/websites. The structures are flexible and you can tailor them to your needs.
 
-For this example you need to create a content model that defines an author and a post content type. **You can create these two by running a script**.
+For this example you need to create a content model that defines a page and a post content type. **You can create these two by running a script**.
 
 #### Run a script to create the content model
 
@@ -50,30 +51,28 @@ This project includes a setup script which you can use to set up the content mod
 
 In your Contentful dashboard go to **Settings > General Settings** and copy the **Space ID**.
 
-Next, go to **Settings > API > Content management tokens** and create a new token by clicking **Generate personal token**. This token has the same access rights as the logged in user. **Do not share it publicly**, you will only use it to set up your space and can delete it afterwards.
+Next, go to **Settings > API Keys > Content management tokens** and create a new token by clicking **Generate personal token**. This token has the same access rights as the logged in user. **Do not share it publicly**, you will only use it to set up your space and can delete it afterwards.
 
 With the space ID and management access token, create a `.env` file in the root of the project and add the following:
 
 ```bash
 CONTENTFUL_SPACE_ID=""
-CONTENTFUL_ACCESS_TOKEN=""
 CONTENTFUL_MANAGEMENT_TOKEN="CFPAT-..."
 ```
 
 - `CONTENTFUL_SPACE_ID` should be the **Space ID** field of your API Key
-- `CONTENTFUL_ACCESS_TOKEN` should be the **[Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/) - access token** field of your API key
 - `CONTENTFUL_MANAGEMENT_TOKEN` should be the **[Content Management API](https://www.contentful.com/developers/docs/references/content-management-api/) - personal access token** field of your API key
 
 And then run the following command:
 
 ```bash
-pnpm run contentful:import
+pnpm contentful:import
 ```
 
 This command will create the needed content structures and set up your Contentful space ready to use. The output should look as follows:
 
 ```
-> contentful-blog@0.1.0 contentful:import /Users/gabriel/www/contentful-blog
+> contentful-blog@0.1.0 contentful:import
 > dotenv -- cross-var contentful space import --space-id=%CONTENTFUL_SPACE_ID% --management-token=%CONTENTFUL_MANAGEMENT_TOKEN% --content-file=src/lib/contentful/__generated/export.json
 
 
@@ -127,7 +126,27 @@ You can also create posts, go to the **Content** section in your space, then cli
 - Add a description, for example: `My first post`
 - Add a content using the rich text editor, for example: `This is my first post using Next.js and Contentful CMS.`
 
-### Step 5. Run in development mode
+### Step 5. Set up environment variables
+
+From your contentful space, go to **Settings > API keys**. There will be an example Content delivery / preview token - you can use these API keys. (You may also create a new key.)
+
+Add to your previously created `.env` file the following:
+
+```bash
+CONTENTFUL_ACCESS_TOKEN=""
+```
+
+- `CONTENTFUL_ACCESS_TOKEN` should be the **[Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/) - access token** field of your API key
+
+Your `.env` file should look as follows:
+
+```bash
+CONTENTFUL_SPACE_ID=...
+CONTENTFUL_ACCESS_TOKEN=...
+CONTENTFUL_MANAGEMENT_TOKEN=...
+```
+
+### Step 6. Run in development mode
 
 ```bash
 pnpm dev
