@@ -28,6 +28,14 @@ export async function generateMetadata({
   return {
     title: page.fields.title,
     description: page.fields.description,
+    openGraph: {
+      title: page.fields.title,
+      description: page.fields.description,
+    },
+    twitter: {
+      title: page.fields.title,
+      description: page.fields.description,
+    },
   }
 }
 

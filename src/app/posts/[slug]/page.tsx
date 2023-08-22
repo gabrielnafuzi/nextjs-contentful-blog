@@ -2,6 +2,7 @@ import { type Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { RichText } from '@/components/rich-text'
+import { siteConfig } from '@/config/site'
 import { getPostBySlug } from '@/lib/contentful/api/get-post-by-slug'
 import { getPosts } from '@/lib/contentful/api/get-posts'
 import { cn } from '@/utils'
@@ -28,6 +29,16 @@ export async function generateMetadata({
   return {
     title: post.fields.title,
     description: post.fields.description,
+    openGraph: {
+      title: post.fields.title,
+      description: post.fields.description,
+      url: `${siteConfig.url}/posts/${params.slug}`,
+    },
+    twitter: {
+      title: post.fields.title,
+      description: post.fields.description,
+    },
+    metadataBase: new URL(siteConfig.url),
   }
 }
 
