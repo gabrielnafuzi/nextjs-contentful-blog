@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { RichText } from '@/components/rich-text'
 import { getPageBySlug } from '@/lib/contentful/api/get-page-by-slug'
 import { getPages } from '@/lib/contentful/api/get-pages'
+import { cn } from '@/utils'
 
 export const revalidate = 60
 
@@ -46,7 +47,7 @@ export default async function Page({ params }: PageProps) {
   }
 
   return (
-    <article className="prose dark:prose-invert py-6">
+    <article className={cn('prose py-6', 'dark:prose-invert')}>
       <h1 className="mb-2">{page.fields.title}</h1>
 
       <p className="mt-0 text-xl text-slate-700 dark:text-slate-200">
