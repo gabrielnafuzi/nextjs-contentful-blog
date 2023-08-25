@@ -142,6 +142,7 @@ const config = {
     'react/jsx-no-constructed-context-values': 'error',
     'react/jsx-no-target-blank': 'warn',
     'react/jsx-no-useless-fragment': 'warn',
+    'react/no-unknown-property': ['error', { ignore: ['tw'] }],
     '@typescript-eslint/consistent-type-imports': [
       'warn',
       {

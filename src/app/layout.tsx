@@ -1,7 +1,9 @@
 import '@/styles/globals.css'
+import { type Metadata } from 'next'
 import { Inter as FontSans } from 'next/font/google'
 
 import { Header } from '@/components/header'
+import { siteConfig } from '@/config/site'
 import { cn } from '@/utils/cn'
 
 import { Providers } from './providers'
@@ -11,9 +13,29 @@ const fontSans = FontSans({
   variable: '--font-sans',
 })
 
-export const metadata = {
-  title: 'Contentful Blog',
-  description: 'A blog built with Next.js and Contentful',
+export const metadata: Metadata = {
+  title: siteConfig.title,
+  description: siteConfig.description,
+  authors: [
+    {
+      name: siteConfig.author,
+      url: siteConfig.links.github,
+    },
+  ],
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: siteConfig.url,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    siteName: siteConfig.title.default,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.title,
+    description: siteConfig.description,
+  },
+  metadataBase: new URL(siteConfig.url),
 }
 
 type RootLayoutProps = {
