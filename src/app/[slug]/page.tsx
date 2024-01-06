@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { RichText } from '@/components/rich-text'
 import { getPageBySlug } from '@/lib/contentful/api/get-page-by-slug'
 import { getPages } from '@/lib/contentful/api/get-pages'
-import { cn } from '@/utils'
+import { cn } from '@/utils/cn'
 
 export const revalidate = 60
 

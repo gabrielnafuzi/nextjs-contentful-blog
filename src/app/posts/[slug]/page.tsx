@@ -5,7 +5,7 @@ import { RichText } from '@/components/rich-text'
 import { siteConfig } from '@/config/site'
 import { getPostBySlug } from '@/lib/contentful/api/get-post-by-slug'
 import { getPosts } from '@/lib/contentful/api/get-posts'
-import { cn } from '@/utils'
+import { cn } from '@/utils/cn'
 
 export const revalidate = 60
 
